@@ -1,0 +1,299 @@
+/* あやたまのホームページ - 共通スタイル
+   コンセプト: 阿部寛のホームページへのオマージュ。
+   外部フォント・外部画像を一切読み込まず、装飾も最小限にする。 */
+
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted: #666666;
+  --rule: #999999;
+  --link: #0000ee;
+  --link-visited: #551a8b;
+  --link-hover: #ff0000;
+  --accent: #cc0000;
+  --table-line: #999999;
+  --table-head-bg: #eeeeee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "MS PGothic", "Hiragino Kaku Gothic ProN", "Osaka",
+    "Yu Gothic", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0;
+  padding: 18px 20px 40px;
+  max-width: 760px;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  line-height: 1.4;
+  text-wrap: balance;
+  margin: 1.2em 0 0.5em;
+}
+
+h1 {
+  font-size: 1.6em;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.25em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+}
+
+h3 {
+  font-size: 1.05em;
+}
+
+p {
+  margin: 0.8em 0;
+}
+
+a:link {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+a:hover,
+a:active {
+  color: var(--link-hover);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 18px 0;
+}
+
+ul, ol {
+  padding-left: 1.6em;
+  margin: 0.8em 0;
+}
+
+li {
+  margin: 0.3em 0;
+}
+
+/* ---- ヘッダー ---- */
+
+.site-title {
+  margin: 0;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 0.85em;
+  margin: 0.2em 0 0.8em;
+}
+
+.updated {
+  color: var(--muted);
+  font-size: 0.8em;
+  text-align: right;
+  margin: 0 0 0.5em;
+}
+
+.banner {
+  border: 1px solid var(--rule);
+  background: #fafafa;
+  padding: 8px 12px;
+  font-size: 0.85em;
+  color: var(--muted);
+  margin: 0 0 1em;
+}
+
+.menu {
+  font-size: 0.9em;
+  margin: 0.6em 0 1em;
+}
+
+.menu a {
+  white-space: nowrap;
+}
+
+.menu .sep {
+  color: var(--rule);
+  margin: 0 0.4em;
+}
+
+.lang-toggle {
+  display: inline-block;
+  border: 1px solid var(--rule);
+  padding: 0 5px;
+  font-size: 0.85em;
+  text-decoration: none !important;
+}
+
+/* ---- プロフィール写真 ---- */
+
+.profile-photo {
+  display: block;
+  width: 160px;
+  height: auto;
+  border: 1px solid var(--rule);
+  padding: 4px;
+  background: #fafafa;
+  margin: 0.6em 0 1em;
+}
+
+/* ---- プロフィールテーブル ---- */
+
+table.profile {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 480px;
+  font-size: 0.92em;
+  margin: 0.8em 0;
+}
+
+table.profile th,
+table.profile td {
+  border: 1px solid var(--table-line);
+  padding: 5px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.profile th {
+  background: var(--table-head-bg);
+  white-space: nowrap;
+  width: 8em;
+  font-weight: normal;
+}
+
+/* ---- 記事一覧 ---- */
+
+.post-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.post-list li {
+  margin: 0.6em 0;
+  padding-bottom: 0.6em;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.post-date {
+  color: var(--muted);
+  font-size: 0.85em;
+  font-variant-numeric: tabular-nums;
+  margin-right: 0.5em;
+}
+
+.new-tag {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.8em;
+  border: 1px solid var(--accent);
+  padding: 0 4px;
+  margin-right: 0.4em;
+  animation: blink-tag 1.4s steps(1, start) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .new-tag {
+    animation: none;
+  }
+}
+
+@keyframes blink-tag {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* ---- 記事本文 ---- */
+
+.post-meta {
+  color: var(--muted);
+  font-size: 0.85em;
+  margin-bottom: 0.2em;
+}
+
+.post-tags {
+  color: var(--muted);
+  font-size: 0.8em;
+  margin-bottom: 1.2em;
+}
+
+.scene-break {
+  text-align: center;
+  color: var(--rule);
+  letter-spacing: 0.4em;
+  margin: 1.4em 0;
+}
+
+.img-caption {
+  text-align: center;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.85em;
+  margin: 0.8em 0;
+}
+
+.embed-card {
+  border: 1px solid var(--rule);
+  padding: 6px 10px;
+  font-size: 0.85em;
+  margin: 0.8em 0;
+  background: #fafafa;
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9em;
+  margin: 1.5em 0;
+}
+
+.post-nav .next {
+  text-align: right;
+}
+
+/* ---- フッター ---- */
+
+footer {
+  margin-top: 2em;
+  color: var(--muted);
+  font-size: 0.8em;
+}
+
+.counter {
+  font-family: "Courier New", monospace;
+  background: #000000;
+  color: #00ff00;
+  padding: 1px 6px;
+  letter-spacing: 2px;
+  font-size: 0.95em;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 14px 14px 32px;
+    font-size: 14.5px;
+  }
+  table.profile {
+    max-width: 100%;
+  }
+  table.profile th {
+    width: 6.5em;
+  }
+}
