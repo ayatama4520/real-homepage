@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* あやたまのホームページ - 共通スタイル
    コンセプト: 阿部寛のホームページへのオマージュ。
    外部フォント・外部画像を一切読み込まず、装飾も最小限にする。 */
@@ -24,7 +25,9 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='170'%3E%3Ctext x='4' y='110' font-family='Georgia, serif' font-size='30' fill='%23dcefe0' transform='rotate(-18 170 85)'%3EREAL HOMEPAGE%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
   color: var(--fg);
   font-family: "MS PGothic", "Hiragino Kaku Gothic ProN", "Osaka",
     "Yu Gothic", sans-serif;
@@ -51,6 +54,14 @@ h2 {
   font-size: 1.25em;
   border-bottom: 1px solid var(--rule);
   padding-bottom: 4px;
+}
+
+h2::before {
+  content: "★★★ ";
+}
+
+h2::after {
+  content: " ★★★";
 }
 
 h3 {
@@ -94,12 +105,14 @@ li {
 
 .site-title {
   margin: 0;
+  text-align: center;
 }
 
 .tagline {
   color: var(--muted);
   font-size: 0.85em;
   margin: 0.2em 0 0.8em;
+  text-align: center;
 }
 
 .updated {
@@ -121,11 +134,24 @@ li {
 .menu {
   font-size: 0.9em;
   margin: 0.6em 0 1em;
+  background: #f0f0ff;
+  border: 1px solid var(--rule);
+  padding: 6px 10px;
 }
 
 .menu a {
   white-space: nowrap;
 }
+
+.menu a::before {
+  content: "● ";
+}
+
+.menu a:nth-of-type(1)::before { color: #ffcccc; }
+.menu a:nth-of-type(2)::before { color: #00ff00; }
+.menu a:nth-of-type(3)::before { color: #33ffff; }
+.menu a:nth-of-type(4)::before { color: #0099ff; }
+.menu a:nth-of-type(5)::before { color: #ff0000; }
 
 .menu .sep {
   color: var(--rule);
