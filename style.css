@@ -178,6 +178,19 @@ li {
   margin: 0.6em 0 1em;
 }
 
+/* ---- 記事内の写真 ---- */
+
+.post-photo {
+  display: block;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  padding: 4px;
+  background: #fafafa;
+  margin: 1.2em auto;
+}
+
 /* ---- プロフィールテーブル ---- */
 
 table.profile {
